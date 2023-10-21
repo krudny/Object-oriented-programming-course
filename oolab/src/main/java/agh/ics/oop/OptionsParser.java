@@ -18,7 +18,6 @@ public class OptionsParser {
                 moveDirection[i] = MoveDirection.RIGHT;
             }
         }
-
         return moveDirection;
     }
 }
