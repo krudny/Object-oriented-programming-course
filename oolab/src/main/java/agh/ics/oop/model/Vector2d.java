@@ -1,5 +1,6 @@
 package agh.ics.oop.model;
 
+
 public class Vector2d {
     private final int x;
     private final int y;
@@ -52,6 +53,15 @@ public class Vector2d {
 
         return new Vector2d(new_x, new_y);
     }
+
+    public Vector2d upperRight(Vector2d other) {
+        return new Vector2d(Math.max(this.getX(), other.getX()), Math.max(this.getY(), other.getY()));
+    }
+
+    public Vector2d lowerLeft(Vector2d other) {
+        return new Vector2d(Math.min(this.getX(), other.getX()), Math.min(this.getY(), other.getY()));
+    }
+
 
 
 

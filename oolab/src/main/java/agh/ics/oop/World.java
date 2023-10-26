@@ -1,5 +1,6 @@
 package agh.ics.oop;
 
+import agh.ics.oop.model.MapDirection;
 import agh.ics.oop.model.MoveDirection;
 import agh.ics.oop.model.Vector2d;
 
@@ -26,16 +27,22 @@ public class World {
         }
     }
     public static void main(String[] args) {
-        System.out.println("System zaczął działanie");
+        /*System.out.println("System zaczął działanie");
         run(OptionsParser.Parser(args));
         System.out.println("System skończył działanie");
 
-        Vector2d vec1 = new Vector2d(1,2);
-        Vector2d vec2 = new Vector2d(4,5);
+        Vector2d position1 = new Vector2d(1,2);
+        System.out.println(position1);
+        Vector2d position2 = new Vector2d(-2,1);
+        System.out.println(position2);
+        System.out.println(position1.add(position2));*/
 
-        System.out.println(vec1.getX());
-        Vector2d vec3 = vec1.add(vec2);
-        System.out.print(vec3.toString());
+        MapDirection direction = MapDirection.EAST;
+        System.out.println("Aktualny kierunek: " + direction);
+        System.out.println("Następny kierunek: " + direction.next());
+        System.out.println("Poprzedni kierunek: " + direction.previous());
+        System.out.println("Jednostkowy wektor: " + direction.toUnitVector());
+
 
     }
 }
