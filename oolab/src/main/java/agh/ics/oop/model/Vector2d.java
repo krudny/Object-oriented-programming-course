@@ -1,6 +1,8 @@
 package agh.ics.oop.model;
 
 
+import java.util.Objects;
+
 public class Vector2d {
     private final int x;
     private final int y;
@@ -60,6 +62,19 @@ public class Vector2d {
 
     public Vector2d lowerLeft(Vector2d other) {
         return new Vector2d(Math.min(this.getX(), other.getX()), Math.min(this.getY(), other.getY()));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
+        Vector2d vector2d = (Vector2d) other;
+        return x == vector2d.x && y == vector2d.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
 
