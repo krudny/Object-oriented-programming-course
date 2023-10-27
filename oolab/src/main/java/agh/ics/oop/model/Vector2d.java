@@ -25,7 +25,7 @@ public class Vector2d {
     }
 
     public boolean precedes(Vector2d other) {
-        if (other.getX() <= x &&  other.getY() <= y) {
+        if (other.getX() > x &&  other.getY() > y) {
             return true;
         }
         else {
@@ -34,7 +34,7 @@ public class Vector2d {
     }
 
     public boolean follows(Vector2d other) {
-        if (other.getX() > x &&  other.getY() > y) {
+        if (other.getX() <= x &&  other.getY() <= y) {
             return true;
         }
         else {
@@ -50,8 +50,8 @@ public class Vector2d {
     }
 
     public Vector2d subtract(Vector2d other) {
-        int new_x = other.getX() - x;
-        int new_y = other.getY() - y;
+        int new_x = x - other.getX();
+        int new_y = y - other.getY();
 
         return new Vector2d(new_x, new_y);
     }
@@ -62,6 +62,13 @@ public class Vector2d {
 
     public Vector2d lowerLeft(Vector2d other) {
         return new Vector2d(Math.min(this.getX(), other.getX()), Math.min(this.getY(), other.getY()));
+    }
+
+    public Vector2d opposite() {
+        int x = getX();
+        int y = getY();
+
+        return new Vector2d(y, x);
     }
 
     @Override
