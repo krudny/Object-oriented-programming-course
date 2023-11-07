@@ -1,5 +1,6 @@
 package agh.ics.oop;
 
+import agh.ics.oop.model.Animal;
 import agh.ics.oop.model.MapDirection;
 import agh.ics.oop.model.MoveDirection;
 import agh.ics.oop.model.Vector2d;
@@ -14,7 +15,7 @@ public class World {
                 case FORWARD:
                     System.out.println("Zwierzak idzie prosto");
                     break;
-                case BACKWARDS:
+                case BACKWARD:
                     System.out.println("Zwierzak idzie do tyłu");
                     break;
                 case LEFT:
@@ -37,11 +38,18 @@ public class World {
         System.out.println(position2);
         System.out.println(position1.add(position2));*/
 
-        MapDirection direction = MapDirection.EAST;
+        /*MapDirection direction = MapDirection.EAST;
         System.out.println("Aktualny kierunek: " + direction);
         System.out.println("Następny kierunek: " + direction.next());
         System.out.println("Poprzedni kierunek: " + direction.previous());
-        System.out.println("Jednostkowy wektor: " + direction.toUnitVector());
+        System.out.println("Jednostkowy wektor: " + direction.toUnitVector());*/
+
+        Animal animal1 = new Animal();
+        Animal animal2 = new Animal(3,4);
+        System.out.println(animal1.toString());
+        animal1.move(MoveDirection.BACKWARD);
+        System.out.println(animal1.toString());
+
 
 
     }

@@ -11,7 +11,7 @@ public class OptionsParser {
             if (Objects.equals(args[i], "f")) {
                 moveDirection[i] = MoveDirection.FORWARD;
             } else if (Objects.equals(args[i], "b")) {
-                moveDirection[i] = MoveDirection.BACKWARDS;
+                moveDirection[i] = MoveDirection.BACKWARD;
             } else if (Objects.equals(args[i], "l")) {
                 moveDirection[i] = MoveDirection.LEFT;
             } else if (Objects.equals(args[i], "r")) {
