@@ -20,6 +20,7 @@ public class OptionsParserTest {
             add(MoveDirection.LEFT);
             add(MoveDirection.RIGHT);
         }};
+
         Assertions.assertEquals(result1, correct1);
 
         String[] args2 = {"b", "k", "r", "l", "f", "b"};
@@ -31,6 +32,7 @@ public class OptionsParserTest {
             add(MoveDirection.FORWARD);
             add(MoveDirection.BACKWARD);
         }};
+
         Assertions.assertEquals(result2, correct2);
     }
 }

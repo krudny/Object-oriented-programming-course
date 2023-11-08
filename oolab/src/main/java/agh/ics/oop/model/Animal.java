@@ -19,7 +19,7 @@ public class Animal {
     }
     @Override
     public String toString() {
-        return "Position: " + position.toString() + " Orientation: " + direction.toString();
+        return "Pozycja: " + position.toString() + " Orientacja: " + direction.toString();
     }
     public boolean isAt(Vector2d position) {
         return position.equals(this.position);
