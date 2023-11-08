@@ -47,7 +47,7 @@ public class Animal {
                     this.position = newPosition2;
                 }
                 break;
-
         }
     }
+
 }
