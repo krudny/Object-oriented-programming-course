@@ -23,16 +23,17 @@ public class Simulation {
         int animal_count = Animals.size();
         int cnt = 0;
 
-        for(MoveDirection move : Directions) {
+        for(MoveDirection currentMove : Directions) {
             Animal current_animal = Animals.get(0);
             Animals.remove(0);
-            current_animal.move(move);
+            current_animal.move(currentMove);
             System.out.println("Zwierze " + ((cnt % animal_count) + 1) + " " + current_animal.toString());
             cnt += 1;
             Animals.add(current_animal);
         }
     }
 
-
-
+    public List<Animal> getAnimals() {
+        return Animals;
+    }
 }
