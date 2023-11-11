@@ -25,7 +25,7 @@ public class Animal {
         return position.equals(this.position);
     }
     public void move(MoveDirection direction) {
-        Vector2d MAP_RIGHT_TOP = new Vector2d(4,4);
+        Vector2d MAP_RIGHT_TOP = new Vector2d(5,5);
         Vector2d MAP_LEFT_BOTTOM = new Vector2d(0,0);
 
         switch(direction) {

@@ -12,8 +12,11 @@ public class Simulation {
     List<MoveDirection> Directions = new ArrayList<>();
     public Simulation(List<Vector2d> positions, List<MoveDirection> directions) {
         for(Vector2d position : positions) {
-            Animal new_animal = new Animal(position.getX(), position.getY());
-            Animals.add(new_animal);
+            if (position.getX() >= 0 && position.getX() < 5 && position.getY() >= 0 && position.getY() < 5)
+            {
+                Animal new_animal = new Animal(position.getX(), position.getY());
+                Animals.add(new_animal);
+            }
         }
 
         this.Directions = directions;
@@ -36,4 +39,6 @@ public class Simulation {
     public List<Animal> getAnimals() {
         return Animals;
     }
+
+    public List<MoveDirection> getDirections() { return Directions; }
 }
