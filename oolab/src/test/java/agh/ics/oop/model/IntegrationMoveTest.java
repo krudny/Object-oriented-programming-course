@@ -17,7 +17,8 @@ public class IntegrationMoveTest {
         String[] args = {"f", "b", "l", "r", "r", "f", "l", "b"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        Simulation simulation = new Simulation(positions, directions);
+        WorldMap worldMap = new RectangularMap(7,7);
+        Simulation simulation = new Simulation(positions, directions, worldMap);
         simulation.run();
 
         List<Animal> finalAnimals = simulation.getAnimals();
@@ -38,7 +39,8 @@ public class IntegrationMoveTest {
         String[] args = {"f", "w", "h", "b", "l", "r", "r", "f", "l", "b"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        Simulation simulation = new Simulation(positions, directions);
+        WorldMap worldMap = new RectangularMap(7,7);
+        Simulation simulation = new Simulation(positions, directions, worldMap);
         simulation.run();
 
         List<Animal> finalAnimals = simulation.getAnimals();
@@ -59,7 +61,8 @@ public class IntegrationMoveTest {
         String[] args = {"f", "l", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        Simulation simulation = new Simulation(positions, directions);
+        WorldMap worldMap = new RectangularMap(7,7);
+        Simulation simulation = new Simulation(positions, directions, worldMap);
         simulation.run();
 
         List<Animal> finalAnimals = simulation.getAnimals();
@@ -80,7 +83,8 @@ public class IntegrationMoveTest {
         String[] args = {"f", "l", "l", "b", "b", "b", "b", "b", "b", "b", "b", "b"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        Simulation simulation = new Simulation(positions, directions);
+        WorldMap worldMap = new RectangularMap(7,7);
+        Simulation simulation = new Simulation(positions, directions, worldMap);
         simulation.run();
 
         List<Animal> finalAnimals = simulation.getAnimals();
@@ -101,7 +105,8 @@ public class IntegrationMoveTest {
         String[] args = {"f", "l", "r", "b", "r", "f", "j", "k"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(7,11), new Vector2d(3,4), new Vector2d(1,1), new Vector2d(0,0));
-        Simulation simulation = new Simulation(positions, directions);
+        WorldMap worldMap = new RectangularMap(7,7);
+        Simulation simulation = new Simulation(positions, directions, worldMap);
 
         List<Animal> finalAnimals = simulation.getAnimals();
         List<MoveDirection> finalDirections = simulation.getDirections();
@@ -135,7 +140,8 @@ public class IntegrationMoveTest {
         String[] args = {"f", "b", "l", "r", "r", "f", "l", "b"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        Simulation simulation = new Simulation(positions, directions);
+        WorldMap worldMap = new RectangularMap(7,7);
+        Simulation simulation = new Simulation(positions, directions, worldMap);
         simulation.run();
 
         List<Animal> finalAnimals = simulation.getAnimals();

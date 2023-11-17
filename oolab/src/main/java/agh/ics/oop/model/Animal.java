@@ -19,15 +19,12 @@ public class Animal {
     }
     @Override
     public String toString() {
-        return "Pozycja: " + position.toString() + " Orientacja: " + direction.toString();
+        return direction.toString();
     }
     public boolean isAt(Vector2d position) {
         return position.equals(this.position);
     }
-    public void move(MoveDirection direction) {
-        Vector2d MAP_RIGHT_TOP = new Vector2d(5,5);
-        Vector2d MAP_LEFT_BOTTOM = new Vector2d(0,0);
-
+    public void move(MoveDirection direction, MoveValidator validator) {
         switch(direction) {
             case RIGHT:
                 this.direction = this.direction.next();
@@ -37,13 +34,13 @@ public class Animal {
                 break;
             case FORWARD:
                 Vector2d newPosition1 = this.position.add(this.direction.toUnitVector());
-                if (newPosition1.precedes(MAP_RIGHT_TOP) && newPosition1.follows(MAP_LEFT_BOTTOM)) {
+                if (validator.canMoveTo(newPosition1)) {
                     this.position = newPosition1;
                 }
                 break;
             case BACKWARD:
                 Vector2d newPosition2 = this.position.subtract(this.direction.toUnitVector());
-                if (newPosition2.precedes(MAP_RIGHT_TOP) && newPosition2.follows(MAP_LEFT_BOTTOM)) {
+                if (validator.canMoveTo(newPosition2)) {
                     this.position = newPosition2;
                 }
                 break;
