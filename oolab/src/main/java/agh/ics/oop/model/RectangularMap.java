@@ -51,6 +51,7 @@ public class RectangularMap implements WorldMap {
     public boolean canMoveTo(Vector2d position) {
         return (!isOccupied(position) && position.precedes(MAP_RIGHT_TOP) && position.follows(MAP_LEFT_BOTTOM));
     }
+
     public Vector2d getMAP_RIGHT_TOP() {
         return MAP_RIGHT_TOP;
     }

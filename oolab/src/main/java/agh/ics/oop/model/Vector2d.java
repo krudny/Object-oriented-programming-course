@@ -24,22 +24,12 @@ public class Vector2d {
         return "(" + x + "," + y + ")";
     }
 
-    public boolean precedes(Vector2d other) {
-        if (other.getX() > x &&  other.getY() > y) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public boolean precedes(Vector2d other){
+        return x <= other.x && y <= other.y;
     }
 
-    public boolean follows(Vector2d other) {
-        if (other.getX() <= x &&  other.getY() <= y) {
-            return true;
-        }
-        else {
-            return false;
-        }
+    public boolean follows(Vector2d other){
+        return x >= other.x && y >= other.y;
     }
 
     public Vector2d add(Vector2d other) {

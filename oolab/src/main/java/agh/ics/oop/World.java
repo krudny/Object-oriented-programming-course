@@ -28,8 +28,8 @@ public class World {
     }
     public static void main(String[] args) {
         List<MoveDirection> directions = OptionsParser.Parser(args);
-        List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
-        WorldMap worldMap = new RectangularMap(4,4);
+        List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4), new Vector2d(0,0));
+        WorldMap worldMap = new RectangularMap(5,5);
         Simulation simulation = new Simulation(positions, directions, worldMap);
         simulation.run();
 
