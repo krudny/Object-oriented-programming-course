@@ -23,6 +23,7 @@ public class Simulation {
     }
 
     public void run() {
+        System.out.println(Map);
         int animal_count = Animals.size();
         int cnt = 0;
 
