@@ -58,7 +58,7 @@ public class IntegrationMoveTest {
     }
     @Test
     public void testOutOfBorderMoves1() {
-        String[] args = {"f", "l", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f"};
+        String[] args = {"f", "l", "l", "f", "f", "f", "f", "f", "f", "f", "f"};
         List<MoveDirection> directions = OptionsParser.Parser(args);
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4));
         WorldMap worldMap = new RectangularMap(7,7);
@@ -72,8 +72,8 @@ public class IntegrationMoveTest {
             actualPositions.add(animal.getPosition());
         }
         List<Vector2d> correctPositions = new ArrayList<>() {{
-            add(new Vector2d(2,4));
             add(new Vector2d(0,4));
+            add(new Vector2d(0,3));
         }};
 
         assertEquals(correctPositions, actualPositions);
@@ -94,8 +94,8 @@ public class IntegrationMoveTest {
             actualPositions.add(animal.getPosition());
         }
         List<Vector2d> correctPositions = new ArrayList<>() {{
-            add(new Vector2d(4,3));
-            add(new Vector2d(4,4));
+            add(new Vector2d(6,3));
+            add(new Vector2d(6,4));
         }};
 
         assertEquals(correctPositions, actualPositions);
