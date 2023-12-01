@@ -12,7 +12,6 @@ public class Simulation {
     public Simulation(List<Vector2d> positions, List<MoveDirection> moves, WorldMap map) {
         this.Moves = moves;
         this.Map = map;
-
         for(Vector2d position : positions) {
             Animal new_animal = new Animal(position.getX(), position.getY());
             if(map.place(new_animal)) {
