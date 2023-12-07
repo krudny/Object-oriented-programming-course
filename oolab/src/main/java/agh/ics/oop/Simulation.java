@@ -27,16 +27,15 @@ public class Simulation {
     }
 
     public void run() {
-        System.out.println(Map);
         int animal_count = Animals.size();
         int cnt = 0;
 
         for(MoveDirection currentMove : Moves) {
             Animal current_animal = Animals.get(0);
             Animals.remove(0);
-            Map.move(current_animal, currentMove);
             System.out.println("Zwierze " + ((cnt % animal_count) + 1) + " " + current_animal.toString());
-            System.out.println(Map);
+            Map.move(current_animal, currentMove);
+
             cnt += 1;
             Animals.add(current_animal);
         }

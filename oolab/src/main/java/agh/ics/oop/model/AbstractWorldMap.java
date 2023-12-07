@@ -2,6 +2,7 @@ package agh.ics.oop.model;
 
 import agh.ics.oop.model.util.MapVisualizer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,12 @@ public abstract class AbstractWorldMap implements WorldMap {
     protected MapVisualizer mapVisualizer = new MapVisualizer(this);
     Vector2d MAP_LEFT_BOTTOM = new Vector2d(0,0);
     Vector2d MAP_RIGHT_TOP = new Vector2d(0,0);
+
+    protected ArrayList<MapChangeListener> listeners = new ArrayList<>();
+
+    public AbstractWorldMap() {
+        listeners = new ArrayList<>();
+    }
 
     @Override
     public void place(Animal animal) throws PositionAlreadyOccupiedException{
@@ -50,6 +57,7 @@ public abstract class AbstractWorldMap implements WorldMap {
                 int y = animal.getPosition().getY();
                 Vector2d vec = new Vector2d(x, y);
                 calculateMapSize(vec);
+                mapChanged(animal, position, animal.getPosition());
             }
         }
     }
@@ -76,5 +84,22 @@ public abstract class AbstractWorldMap implements WorldMap {
 
     public String toString() {
         return mapVisualizer.draw(getCurrentBounds().MAP_LEFT_BOTTOM(), getCurrentBounds().MAP_RIGHT_TOP());
+    }
+
+    public void addListener(MapChangeListener listener) {
+        listeners.add(listener);
+    }
+
+    public String mapChanged( Animal animal, Vector2d oldPosition, Vector2d newPosition){
+        String result = "";
+        if (oldPosition == null){
+            result = "New animal placed on the map at " + newPosition.toString();
+        }
+        else{
+            result = "Animal moved from " + oldPosition.toString() + " to " + newPosition.toString();
+        }
+        for (MapChangeListener listener : listeners)
+            listener.mapChanged((WorldMap) this,result);
+        return result;
     }
 }
