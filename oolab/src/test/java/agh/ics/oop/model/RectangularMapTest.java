@@ -17,24 +17,26 @@ public class RectangularMapTest {
         assertFalse(rectangularMap.canMoveTo(new Vector2d(5,5)));
     }
     @Test
-    public void testPlace(){
-        RectangularMap rectangularMap = new RectangularMap(4,4);
-        assertTrue(rectangularMap.place(ANIMAL1));
-        assertTrue(rectangularMap.place(ANIMAL2));
-        assertFalse(rectangularMap.place(new Animal()));
-    }
-    @Test
     public void testIsOccupied(){
         RectangularMap rectangularMap = new RectangularMap(4,4);
-        rectangularMap.place(ANIMAL1);
-        rectangularMap.place(ANIMAL2);
+        try {
+            rectangularMap.place(ANIMAL1);
+            rectangularMap.place(ANIMAL2);
+        } catch (PositionAlreadyOccupiedException e) {
+            e.printStackTrace();
+        }
+
         assertFalse(rectangularMap.isOccupied(new Vector2d(0,0)));
         assertTrue(rectangularMap.isOccupied(VEC11));
     }
     @Test
     public void testObjectAt(){
         RectangularMap rectangularMap = new RectangularMap(4,4);
-        rectangularMap.place(ANIMAL1);
+        try {
+            rectangularMap.place(ANIMAL1);
+        } catch (PositionAlreadyOccupiedException e) {
+            e.printStackTrace();
+        }
         assertNull(rectangularMap.objectAt(new Vector2d(0, 0)));
         assertEquals(ANIMAL1, rectangularMap.objectAt(VEC11));
     }

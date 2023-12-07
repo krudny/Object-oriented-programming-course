@@ -19,6 +19,8 @@ public class OptionsParser {
                 MoveDirectionList.add(MoveDirection.LEFT);
             } else if (Objects.equals(args[i], "r")) {
                 MoveDirectionList.add(MoveDirection.RIGHT);
+            } else {
+                throw new IllegalArgumentException(args[i] + " " + "is not legal move");
             }
         }
         return MoveDirectionList;

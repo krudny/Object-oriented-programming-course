@@ -17,9 +17,14 @@ public class GrassFieldTest {
         GrassField map = new GrassField(10);
         Map<Vector2d, Animal> finalAnimals = map.getAnimals();
 
-        for(Vector2d position : positions) {
-            map.place(new Animal(position.getX(), position.getY()));
+        for (Vector2d position : positions) {
+            try {
+                map.place(new Animal(position.getX(), position.getY()));
+            } catch (PositionAlreadyOccupiedException e){
+                e.printStackTrace();
+            }
         }
+
 
         assertTrue(finalAnimals.containsKey(new Vector2d(3,4)));
         assertTrue(finalAnimals.containsKey(new Vector2d(0,0)));
@@ -32,8 +37,12 @@ public class GrassFieldTest {
         List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(5,7), new Vector2d(-4,0));
         GrassField map = new GrassField(10);
 
-        for(Vector2d position : positions) {
-            map.place(new Animal(position.getX(), position.getY()));
+        for (Vector2d position : positions) {
+            try {
+                map.place(new Animal(position.getX(), position.getY()));
+            } catch (PositionAlreadyOccupiedException e){
+                e.printStackTrace();
+            }
         }
 
         assertTrue(map.isOccupied(new Vector2d(2,2)));
@@ -46,8 +55,12 @@ public class GrassFieldTest {
         List<Vector2d> positions = List.of(new Vector2d(2,2));
         GrassField map = new GrassField(10);
 
-        for(Vector2d position : positions) {
-            map.place(new Animal(position.getX(), position.getY()));
+        for (Vector2d position : positions) {
+            try {
+                map.place(new Animal(position.getX(), position.getY()));
+            } catch (PositionAlreadyOccupiedException e){
+                e.printStackTrace();
+            }
         }
 
         Animal animal = (Animal) map.objectAt(new Vector2d(2,2));

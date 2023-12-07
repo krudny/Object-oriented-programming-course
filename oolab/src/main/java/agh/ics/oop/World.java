@@ -28,13 +28,21 @@ public class World {
         }
     }
     public static void main(String[] args) {
-        String[] args1 = {"f", "b", "l", "r", "r", "f", "l", "b", "b"};
-        List<MoveDirection> directions = OptionsParser.Parser(args1);
-        List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4), new Vector2d(0,0));
+        List<MoveDirection> directions = new ArrayList<>();
 
-        GrassField map = new GrassField(10);
-        Simulation sim = new Simulation(positions, directions, map);
-        sim.run();
+        String[] args1 = {"f", "f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f"};
+        try {
+            directions = OptionsParser.Parser(args1);
+            List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4), new Vector2d(0,0));
+            GrassField map = new GrassField(10);
+            map.addListener(new ConsoleMapDisplay());
+            Simulation sim = new Simulation(positions, directions, map);
+            sim.run();
+        } catch (IllegalArgumentException e){
+            e.printStackTrace();
+        }
+
+
 
 
     }

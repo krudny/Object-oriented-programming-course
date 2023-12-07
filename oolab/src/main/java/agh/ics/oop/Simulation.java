@@ -14,24 +14,28 @@ public class Simulation {
         this.Map = map;
         for(Vector2d position : positions) {
             Animal new_animal = new Animal(position.getX(), position.getY());
-            if(map.place(new_animal)) {
+            try {
+                map.place(new_animal);
                 Animals.add(new_animal);
+            } catch (PositionAlreadyOccupiedException e) {
+                e.printStackTrace();
             }
+
+
         }
 
     }
 
     public void run() {
-        System.out.println(Map);
         int animal_count = Animals.size();
         int cnt = 0;
 
         for(MoveDirection currentMove : Moves) {
             Animal current_animal = Animals.get(0);
             Animals.remove(0);
-            Map.move(current_animal, currentMove);
             System.out.println("Zwierze " + ((cnt % animal_count) + 1) + " " + current_animal.toString());
-            System.out.println(Map);
+            Map.move(current_animal, currentMove);
+
             cnt += 1;
             Animals.add(current_animal);
         }
