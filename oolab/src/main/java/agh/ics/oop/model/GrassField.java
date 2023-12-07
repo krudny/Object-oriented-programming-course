@@ -30,12 +30,6 @@ public class GrassField extends AbstractWorldMap {
         }
     }
     @Override
-    public String toString() {
-        return mapVisualizer.draw(MAP_LEFT_BOTTOM, MAP_RIGHT_TOP);
-    }
-
-
-    @Override
     public boolean isOccupied(Vector2d position) {
         return (super.isOccupied(position) || grass.containsKey(position));
     }

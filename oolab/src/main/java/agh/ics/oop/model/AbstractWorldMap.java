@@ -69,4 +69,12 @@ public abstract class AbstractWorldMap implements WorldMap {
 
         return all_elements;
     }
+
+    public Boundary getCurrentBounds(){
+        return new Boundary(MAP_LEFT_BOTTOM, MAP_RIGHT_TOP);
+    }
+
+    public String toString() {
+        return mapVisualizer.draw(getCurrentBounds().MAP_LEFT_BOTTOM(), getCurrentBounds().MAP_RIGHT_TOP());
+    }
 }

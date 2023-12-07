@@ -16,10 +16,11 @@ public class Simulation {
             Animal new_animal = new Animal(position.getX(), position.getY());
             try {
                 map.place(new_animal);
+                Animals.add(new_animal);
             } catch (PositionAlreadyOccupiedException e) {
                 e.printStackTrace();
             }
-            Animals.add(new_animal);
+
 
         }
 

@@ -30,7 +30,7 @@ public class World {
     public static void main(String[] args) {
         List<MoveDirection> directions = new ArrayList<>();
 
-        String[] args1 = {"f", "b", "l", "r", "r", "f", "l", "b", "b"};
+        String[] args1 = {"f", "f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f","f"};
         try {
             directions = OptionsParser.Parser(args1);
             List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4), new Vector2d(0,0));
