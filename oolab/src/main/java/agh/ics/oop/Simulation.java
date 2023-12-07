@@ -14,9 +14,13 @@ public class Simulation {
         this.Map = map;
         for(Vector2d position : positions) {
             Animal new_animal = new Animal(position.getX(), position.getY());
-            if(map.place(new_animal)) {
-                Animals.add(new_animal);
+            try {
+                map.place(new_animal);
+            } catch (PositionAlreadyOccupiedException e) {
+                e.printStackTrace();
             }
+            Animals.add(new_animal);
+
         }
 
     }

@@ -13,13 +13,14 @@ public abstract class AbstractWorldMap implements WorldMap {
     Vector2d MAP_RIGHT_TOP = new Vector2d(0,0);
 
     @Override
-    public boolean place(Animal animal) {
+    public void place(Animal animal) throws PositionAlreadyOccupiedException{
         if (canMoveTo(animal.getPosition())){
             animals.put(animal.getPosition(), animal);
-            return true;
+        } else {
+            throw new PositionAlreadyOccupiedException(animal.getPosition());
         }
 
-        return false;
+
     }
 
     @Override
