@@ -63,4 +63,8 @@ public class GrassField extends AbstractWorldMap {
 
         return all_elements;
     }
+
+    public String getId(){
+        return "GrassField Map nr " + ID;
+    }
 }
