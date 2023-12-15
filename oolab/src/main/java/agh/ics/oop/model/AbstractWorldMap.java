@@ -8,6 +8,8 @@ import java.util.Map;
 
 public abstract class AbstractWorldMap implements WorldMap {
     protected Map<Vector2d, Animal> animals = new HashMap<>();
+
+    public static int ID = 0;
     protected Map<Vector2d, WorldElement> all_elements = new HashMap<>();
     protected MapVisualizer mapVisualizer = new MapVisualizer(this);
     Vector2d MAP_LEFT_BOTTOM = new Vector2d(0,0);
@@ -16,6 +18,7 @@ public abstract class AbstractWorldMap implements WorldMap {
     protected ArrayList<MapChangeListener> listeners = new ArrayList<>();
 
     public AbstractWorldMap() {
+        ID+=1;
         listeners = new ArrayList<>();
     }
 

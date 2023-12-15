@@ -5,7 +5,7 @@ import agh.ics.oop.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Simulation {
+public class Simulation implements Runnable{
     private final List<Animal> Animals = new ArrayList<>();
     private List<MoveDirection> Moves = new ArrayList<>();
     private final WorldMap Map;
@@ -26,10 +26,9 @@ public class Simulation {
 
     }
 
-    public void run() {
+    public synchronized void run() {
         int animal_count = Animals.size();
         int cnt = 0;
-
         for(MoveDirection currentMove : Moves) {
             Animal current_animal = Animals.get(0);
             Animals.remove(0);

@@ -27,4 +27,12 @@ public class RectangularMap extends AbstractWorldMap {
     public Vector2d getMAP_LEFT_BOTTOM() {
         return MAP_LEFT_BOTTOM;
     }
+    @Override
+    public String toString() {
+        return mapVisualizer.draw(MAP_LEFT_BOTTOM, MAP_RIGHT_TOP);
+    }
+
+    public String getId(){
+        return "Rectangular MAP nr " + ID;
+    }
 }
