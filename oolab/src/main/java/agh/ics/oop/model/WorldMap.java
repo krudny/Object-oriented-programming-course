@@ -44,4 +44,6 @@ public interface WorldMap extends MoveValidator {
     WorldElement objectAt(Vector2d position);
 
     String getId();
+
+    public Boundary getCurrentBounds();
 }
