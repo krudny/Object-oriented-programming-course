@@ -1,6 +1,7 @@
 package agh.ics.oop;
 
 import agh.ics.oop.model.*;
+import javafx.application.Application;
 import org.w3c.dom.css.Rect;
 
 import java.util.ArrayList;
@@ -30,31 +31,41 @@ public class World {
     }
 
     public static void main(String[] args) {
-        List<MoveDirection> directions = new ArrayList<>();
-
-        String[] args1 = {"f", "f","f","f","f","f","f","f","f"};
-
-        try {
-            List <Simulation> listOfSimulations = new ArrayList<>();
-            ConsoleMapDisplay listener = new ConsoleMapDisplay();
-            for(int i = 0; i < 20; i++) {
-                directions = OptionsParser.Parser(args1);
-                List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4), new Vector2d(0,0));
-                GrassField map = new GrassField(10);
-                map.addListener(listener);
-                listOfSimulations.add(new Simulation(positions, directions, map));
-            }
+        Application.launch(SimulationApp.class, args);
 
 
-            SimulationEngine simulationEngine = new SimulationEngine(listOfSimulations);
-            simulationEngine.runAsyncInThreadPool();
-            simulationEngine.awaitSimulationsEnds();
 
-            System.out.println("koniec programu");
 
-        } catch (IllegalArgumentException | InterruptedException e){
-            e.printStackTrace();
-        }
+
+
+
+
+//        List<MoveDirection> directions = new ArrayList<>();
+//
+//        String[] args1 = {"f", "f","f","f","f","f","f","f","f"};
+//        try {
+//            List <Simulation> listOfSimulations = new ArrayList<>();
+//            ConsoleMapDisplay listener = new ConsoleMapDisplay();
+//            for(int i = 0; i < 20; i++) {
+//                directions = OptionsParser.Parser(args1);
+//                List<Vector2d> positions = List.of(new Vector2d(2,2), new Vector2d(3,4), new Vector2d(0,0));
+//                GrassField map = new GrassField(10);
+//                map.addListener(listener);
+//                listOfSimulations.add(new Simulation(positions, directions, map));
+//            }
+//
+//
+//            SimulationEngine simulationEngine = new SimulationEngine(listOfSimulations);
+//            simulationEngine.runAsyncInThreadPool();
+//            simulationEngine.awaitSimulationsEnds();
+//
+//            System.out.println("koniec programu");
+//
+//        } catch (IllegalArgumentException | InterruptedException e){
+//            e.printStackTrace();
+//        }
+
+
 
 
     }
