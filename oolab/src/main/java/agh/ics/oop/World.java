@@ -1,18 +1,23 @@
 package agh.ics.oop;
 
-import agh.ics.oop.model.MoveDirection;
+import agh.ics.oop.model.*;
+import javafx.application.Application;
+import org.w3c.dom.css.Rect;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class World {
 
-    public static void run(MoveDirection[] directions) {
+    public static void run(List<MoveDirection> directions) {
         for (MoveDirection direction : directions) {
             switch (direction) {
                 case FORWARD:
                     System.out.println("Zwierzak idzie prosto");
                     break;
-                case BACKWARDS:
+                case BACKWARD:
                     System.out.println("Zwierzak idzie do tyłu");
                     break;
                 case LEFT:
@@ -24,9 +29,9 @@ public class World {
             }
         }
     }
+
     public static void main(String[] args) {
-        System.out.println("System zaczął działanie");
-        run(OptionsParser.Parser(args));
-        System.out.println("System skończył działanie");
+        Application.launch(SimulationApp.class, args);
+
     }
 }
