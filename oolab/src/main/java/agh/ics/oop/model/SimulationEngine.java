@@ -29,7 +29,6 @@ public class SimulationEngine{
             thread.start();
         }
     }
-
     public void awaitSimulationsEnds() throws InterruptedException
     {
         for(Thread thread : simulationThreads) {
@@ -43,7 +42,6 @@ public class SimulationEngine{
             }
         }
     }
-
     public void runAsyncInThreadPool(){
         simulatorExecutor = newFixedThreadPool(4);
         simulationList.forEach(simulatorExecutor :: submit);

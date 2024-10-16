@@ -5,7 +5,7 @@ import agh.ics.oop.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Simulation implements Runnable{
+public class Simulation extends Thread implements Runnable{
     private final List<Animal> Animals = new ArrayList<>();
     private List<MoveDirection> Moves = new ArrayList<>();
     private final WorldMap Map;
@@ -28,15 +28,16 @@ public class Simulation implements Runnable{
 
     public synchronized void run() {
         int animal_count = Animals.size();
-        int cnt = 0;
-        for(MoveDirection currentMove : Moves) {
-            Animal current_animal = Animals.get(0);
-            Animals.remove(0);
-            System.out.println("Zwierze " + ((cnt % animal_count) + 1) + " " + current_animal.toString());
-            Map.move(current_animal, currentMove);
-
-            cnt += 1;
-            Animals.add(current_animal);
+        try {
+            for(MoveDirection currentMove : Moves) {
+                Thread.sleep(500);
+                Animal current_animal = Animals.get(0);
+                Animals.remove(0);
+                Map.move(current_animal, currentMove);
+                Animals.add(current_animal);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
